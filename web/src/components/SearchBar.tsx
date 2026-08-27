@@ -1,0 +1,2 @@
+import {useState} from 'react'; import {useNavigate} from 'react-router-dom';
+export function SearchBar(){const[q,setQ]=useState('');const nav=useNavigate();return <form onSubmit={e=>{e.preventDefault();if(q.trim())nav(`/search?q=${encodeURIComponent(q.trim())}`)}} className="flex gap-2"><input className="flex-1 border rounded-xl px-4 py-2" value={q} onChange={e=>setQ(e.target.value)} placeholder="Search developers, technologies, projects…"/><button className="btn-primary" type="submit">Search</button></form>}

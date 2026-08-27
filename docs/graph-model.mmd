@@ -1,0 +1,9 @@
+flowchart LR
+ D[Developer] -->|WORKED_ON| P[Project]
+ P -->|USES| T[Technology]
+ D -->|HAS_SKILL| T
+ D -->|HAS_SKILL| S[Skill]
+ D -->|WORKED_AT| O[Organization]
+ T -->|DEPENDS_ON| T
+ D -->|COLLABORATED_WITH| D
+ P -->|OWNED_BY| O

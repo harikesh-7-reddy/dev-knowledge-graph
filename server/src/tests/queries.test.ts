@@ -1,0 +1,2 @@
+import {describe,it,expect} from 'vitest'; import {QUERIES} from '../queries/index.js';
+describe('queries',()=>{it('contains multi-hop query',()=>expect(QUERIES.DEVELOPER_TECHNOLOGIES).toContain('WORKED_ON'));it('contains dependency traversal',()=>expect(QUERIES.TECHNOLOGY_DEPENDENCY_TREE).toContain('*1..5'));it('contains shortest path',()=>expect(QUERIES.DEV_CONNECTION_PATH).toContain('shortestPath'));});

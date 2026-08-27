@@ -1,0 +1,16 @@
+{
+  "name": "dev-knowledge-graph",
+  "version": "1.1.0",
+  "private": true,
+  "description": "Developer Knowledge Graph powered by CognoDB.",
+  "scripts": {
+    "install:all": "npm install && npm --prefix server install && npm --prefix web install",
+    "dev": "concurrently -n server,web -c blue,green \"npm --prefix server run dev\" \"npm --prefix web run dev\"",
+    "build": "npm --prefix server run build && npm --prefix web run build",
+    "seed": "npm --prefix server run seed",
+    "seed:reset": "npm --prefix server run seed:reset",
+    "test": "npm --prefix server run test",
+    "lint": "npm --prefix server run lint && npm --prefix web run lint"
+  },
+  "devDependencies": { "concurrently": "^8.2.2" }
+}

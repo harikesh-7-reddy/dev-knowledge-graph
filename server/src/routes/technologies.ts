@@ -1,0 +1,7 @@
+import { Router } from 'express'; import { technologyService } from '../services/technologyService.js'; import { validate, schemas } from '../utils/validation.js';
+export const technologiesRouter = Router();
+technologiesRouter.get('/', async(req,res,next)=>{try{const {limit}=validate(schemas.limit,{limit:req.query.limit??30});res.json({technologies:await technologyService.getAll(limit)});}catch(e){next(e);}});
+technologiesRouter.get('/:id', async(req,res,next)=>{try{const {id}=validate(schemas.idParam,{id:req.params.id});res.json(await technologyService.getById(id));}catch(e){next(e);}});
+technologiesRouter.get('/:id/dependencies', async(req,res,next)=>{try{const {id}=validate(schemas.idParam,{id:req.params.id});const {limit}=validate(schemas.limit,{limit:req.query.limit??20});res.json({technologyId:id,dependencies:await technologyService.getDependencies(id,limit)});}catch(e){next(e);}});
+technologiesRouter.get('/:id/dependents', async(req,res,next)=>{try{const {id}=validate(schemas.idParam,{id:req.params.id});const {limit}=validate(schemas.limit,{limit:req.query.limit??20});res.json({technologyId:id,dependents:await technologyService.getDependents(id,limit)});}catch(e){next(e);}});
+technologiesRouter.get('/:id/developers', async(req,res,next)=>{try{const {id}=validate(schemas.idParam,{id:req.params.id});res.json({technologyId:id,developers:await technologyService.getDevelopers(id)});}catch(e){next(e);}});

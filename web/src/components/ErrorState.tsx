@@ -1,0 +1,1 @@
+export function ErrorState({message,onRetry}:{message:string;onRetry?:()=>void}){return <div className="card text-center py-12"><div className="font-semibold text-red-600">Something went wrong</div><p className="text-sm text-slate-500 mt-2">{message}</p>{onRetry&&<button className="btn-secondary mt-4" onClick={onRetry}>Try again</button>}</div>}
